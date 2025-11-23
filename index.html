@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пожарник</title>
+    <style>
+        html {
+            background-image: url(Frame\ 1.png);
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #game {
+            display: grid;
+            grid-template-columns: repeat(10, 50px);
+            grid-template-rows: repeat(10, 50px);
+            gap: 2px;
+            margin: 20px auto;
+            width: 520px;
+        }
+        .cell {
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            position: relative;
+        }
+        .river {
+            background-color: blue;
+        }
+        .fire-weak {
+            background-color: orange;
+        }
+        .fire-medium {
+            background-color: red;
+        }
+        .fire-strong {
+            background-color: darkred;
+        }
+        .fire-truck {
+            background-color: yellow;
+            border: 2px solid black;
+        }
+        .fire-truck::after {
+            content: '🚒';
+            font-size: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #controls {
+            text-align: center;
+        }
+        #timer, #loadingWater, #arrivalTime, #waterLevel {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game"></div>
+    <div id="controls">
+        <label for="waterAmount">Количество воды (л): </label>
+        <input type="number" id="waterAmount" min="1" max="100" value="10">
+        <button id="startGame">Начать игру</button>
+        <button id="loadWater" disabled>Загрузить воду</button>
+        <p id="message"></p>
+        <p id="timer">Оставшееся время: 70</p>
+        <p id="loadingWater">Время загрузки воды: -</p>
+        <p id="arrivalTime">Время прибытия машины: -</p>
+        <p id="waterLevel">Уровень воды: -</p>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
